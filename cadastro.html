@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTech - Cadastro de Usuário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Cadastro</h1>
+        <form id="cadastroForm">
+            <input type="text" id="novoUsuario" placeholder="Escolha um Usuário" required>
+            <input type="email" id="emailUsuario" placeholder="Seu melhor e-mail" required>
+            <input type="password" id="novaSenha" placeholder="Crie uma Senha" required>
+            <input type="password" id="confirmaSenha" placeholder="Confirme a Senha" required>
+            
+            <button type="submit">Cadastrar</button>
+            <p id="mensagem"></p>
+        </form>
+        <p style="margin-top: 15px; font-size: 14px;">
+            Já tem uma conta? <a href="index.html" style="color: #00bfa5; text-decoration: none;">Faça Login</a>
+        </p>
+    </div>
+
+    <script>
+        const form = document.getElementById("cadastroForm");
+        const mensagem = document.getElementById("mensagem");
+
+        form.addEventListener("submit", (e) => {
+            const senha = document.getElementById("novaSenha").value;
+            const confirma = document.getElementById("confirmaSenha").value;
+
+            if (senha !== confirma) {
+                e.preventDefault();
+                mensagem.textContent = "As senhas não coincidem!";
+                mensagem.style.color = "#ff5252";
+            } else {
+                alert("Cadastro realizado com sucesso!");
+            }
+        });
+    </script>
+</body>
+</html>
